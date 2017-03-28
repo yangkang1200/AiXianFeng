@@ -1,0 +1,52 @@
+<div class="header">
+		<div class="index-header-text"><span>中南海</span></div>
+		<span class="header-icon">搜&nbsp;&nbsp;索</span>
+</div>
+<div id="shop">
+	<div class="main">
+		<div class="main-content theme spline-top">
+			<div class="category-wrap">
+				<ul class="categorys">
+					<li class="categorys-item theme" ng-repeat="(i,obj) in cateagoryTypeArr" style="background-image: url({{obj.flag}});"
+						ng-click="getpro(obj.id,i)" ng-class="{'theme-border-before':borderid==obj.id}">{{obj.name}}</li>
+						<div></div>
+				</ul>
+			</div>
+		</div>
+		<div class="productlist-wrap">
+			<ul class="productList">
+				<li class="fifter-holder"></li>
+				<li class="mod-product-item cf theme"  ng-repeat="objpro in pro | orderBy:orderBy" ng-click="change(objpro)" >
+					<a href="#/part">
+					<div class="mod-product-item-inner"> 
+						<img class="mod-product-img" lazy-src='{{objpro.img}}'/>
+						<div class="product-meta-wrap">
+							<div class="ui-ellipsis">{{objpro.name}}</div>
+							<span class="pm-embossed" ng-if="objpro.tag_ids!=''">精选</span>
+							<span class='pm-intaglio' ng-if="objpro.pm_desc!=''">{{objpro.pm_desc}}</span>
+							<div class="ui-ellipsis theme-grey">{{objpro.specifics}}</div>
+							<div class="price-wrap">
+								<span class="price-current">{{objpro.price-0}}</span>
+								<span class="price-market" ng-if="objpro.market_price!=objpro.price&&objpro.market_price!=objpro.partner_price">{{objpro.market_price}}</span>
+							</div>
+						</div>
+					</div></a>
+				</li>
+			</ul>
+		</div>
+		<div class="product-fifter" ng-class="{'expand-sub':expandsub,'expand-sort':expandsort,'expand':expand}">
+				<ul class="fifter-titles theme" >
+					<li class="fifter-title fifter-title-sub" ng-click="getitem()" ng-class="{'expendFifter':expendFifter1}">{{allcateagory}}&nbsp;</li>
+					<li class="fifter-title fifter-title-sort" ng-click="getsort()" ng-class="{'expendFifter':expendFifter2}">{{allsort}}&nbsp;</li>
+				</ul>
+				<ul class='fifter-items cf' ng-show="isshow">
+					<li ng-repeat="cate in cateagoryTypeArr[i].cids" class="fifter-item fifter-item-sub"
+						ng-click="changeCate(cate.name)">{{cate.name}}</li>
+					<li class="fifter-item fifter-item-sort" ng-click="sort('','综合排序')">综合排序</li>
+					<li class="fifter-item fifter-item-sort" ng-click="sort('product_num','销量最高')">销量最高</li>
+					<li class="fifter-item fifter-item-sort" ng-click="sort('price','价格最低')">价格最低</li>
+					<li class="fifter-item fifter-item-sort" ng-click="sort('-price','价格最高')">价格最高</li>
+				</ul>
+			</div>
+	</div>
+</div>

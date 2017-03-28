@@ -1,0 +1,74 @@
+<div class="header">
+		<div class="index-header-text"><span>中南海</span></div>
+		<span class="header-icon">搜&nbsp;&nbsp;索</span>
+	</div>
+<div id="index">
+	
+	<div class="main">
+		<div class="swiper-container" id="slider">
+				<div class="swiper-wrapper" id="swiper-wrapper">
+					<div class="swiper-slide" ng-repeat="obj in slideArr">
+						<img ng-src="{{obj.activity.img}}" alt="" />
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+	</div>
+		<ul class="acts-icon block cf">
+			<li ng-repeat=" obj in iconarr" class="acts-icon-item">
+				<div style="background-image: url({{obj.activity.img}})"></div>
+				<p>{{obj.activity.name}}</p>
+			</li>
+		</ul>
+		<ul class="acts-brand cf block">
+			<li ng-repeat="obj in brandarr" class="acts-brand-item theme" style="background-image: url({{obj.activity.img}})"></li>
+		</ul>
+		<div class="home-bussiness block">
+			<ul ng-repeat="obj in bussarr" ng-class="{{obj.type}}" class="{{obj.type}}">
+				<li ng-repeat="obj2 in obj.act_rows" class="business-sub-item theme" ng-if="obj.type=='chead'">
+					<div class="business-sub-item-inner theme" style="background-image: url({{obj2.chead_detail.img}});"></div>
+				</li>
+				<li ng-repeat="obj2 in obj.act_rows" class="business-sub-item theme" ng-if="obj.type=='cactivity'">
+					<div class="business-sub-item-inner theme" style="background-image: url({{obj2.cactivity_detail.img}});"></div>
+				</li>
+				<li ng-repeat="obj2 in obj.act_rows" class="business-sub-item theme" ng-if="obj.type=='cicons'">
+					<div class="business-sub-item-inner theme" style="background-image: url({{obj2.cicons_detail.img}});">
+						<div class="ui-ellipsis">{{obj2.cicons_detail.name}}</div>
+					</div>
+				</li>
+				<li ng-repeat="obj2 in obj.act_rows" class="business-sub-item theme" ng-if="obj.type=='cscene'">
+					<div class="business-sub-item-inner theme" style="background-image: url({{obj2.cscene_detail.img}});"></div>
+				</li>
+			</ul>
+		</div>
+		<ul class="acts-cateagory cf">
+			<li class="block acts-cateagory-item" ng-repeat="obj in cateagArr">
+				<div class="acts-cateagory-item-header cf">
+					<span class="acts-cateagory-item-header-title" style="color:#{{obj.category_detail.category_color}};
+						border-color: #{{obj.category_detail.category_color}};">{{obj.category_detail.name}}</span>
+					<span class="acts-cateagory-item-header-more theme-grey">更多<span class="theme-spacer"></span></span>
+				</div>
+				<div class="acts-cateagory-item-banner cf" style="background-image: url({{obj.activity.img}});"></div>
+				<ul class="acts-cateagory-item-goodsList cf">
+					<li class="product-idem" ng-repeat="obj2 in obj.category_detail.goods">
+						<div class="product-inner theme">
+							<div class="product-img" style="background-image: url({{obj2.img}});"></div>
+							<div class="product-wrap">
+								<div class="ui-ellipsis">{{obj2.name}}</div>
+								<span class="pm-embossed" ng-if="obj2.tag_ids!=''">精选</span>
+								<span class="pm-intaglio" ng-if="obj2.pm_desc!=''">{{obj2.pm_desc}}</span>
+								<div class="ui-ellipsis theme-grey">{{obj2.specifics}}</div>
+								<div class="product-add"><span class="product-add-item theme"></span></div>
+								<div class="price-wrap"><span class="price-current">{{obj2.price}}</span>
+									<span class="price-market" ng-if="obj2.market_price!=obj2.price&&obj2.market_price!=obj2.partner_price">{{obj2.market_price}}</span>
+								</div>
+							</div>
+						</div>
+						
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+			
+</div>

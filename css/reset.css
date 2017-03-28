@@ -1,0 +1,38 @@
+@charset "utf-8";
+html,body{
+	height: 100%;
+}
+html{
+	position: relative;
+    height: 100%;
+    margin: auto;
+}
+
+body{
+	font: 16px/1.5 "Myriad Set Pro","Lucida Grande","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif,'Microsoft Yahei',Simsun;
+    color: #333;
+    background: #fff;
+    -webkit-text-size-adjust: none;
+    min-width: 320px;
+}
+body, h1, h2, h3, p, dl, dd, ol, ul, th, td, form, fieldset, input, button, textarea {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: Arial,Verdana,Sans-serif;
+    word-wrap: break-word;
+}
+a {
+    color: #333;
+}
+a, input, textarea {
+    text-decoration: none;
+    outline: 0;
+}
+li, img, label, input {
+    vertical-align: middle;
+}
+ul,ol,li{
+	list-style:none;
+}

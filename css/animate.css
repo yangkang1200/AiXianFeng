@@ -1,0 +1,53 @@
+@keyframes rotateFall {
+0% { transform: rotateZ(0deg); }
+20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
+40% { transform: rotateZ(17deg); }
+60% { transform: rotateZ(16deg); }
+100% { transform: translateY(100%) rotateZ(17deg); }
+}
+
+@keyframes slideInRight {
+from { transform:translateX(100%); }
+to { transform: translateX(0); }
+}
+
+@keyframes slideOutLeft {
+    to{ transform: translateX(-100%); }
+}
+ 
+@keyframes slideInUp {
+from { transform:translateY(100%); }
+to { transform: translateY(0); }
+}
+
+@keyframes slideOutDown {
+to { transform: translateY(-100%); }
+}
+
+.order-bg.ng-enter{
+	-webkit-animation:slideInRight 0.5s both ease;
+    -moz-animation:slideInRight 0.5s both ease;
+    animation:slideInRight 0.5s both ease; 
+}
+.order-bg.ng-leave{ 
+    -webkit-animation:slideOutDown 0.5s both ease;
+    -moz-animation:slideOutDown 0.5s both ease;
+    animation:slideOutDown 0.5s both ease;   
+}
+
+.cityInfo{
+	position: relative;
+	transition: 0.5s linear all;
+}
+.cityInfo.ng-enter-stagger{
+	transition-delay: 0.5s;
+	transition-duration: 8s;
+}
+.cityInfo.ng-enter{
+	opacity: 0;
+	top: -40px;
+}
+.cityInfo.ng-enter-active{
+	opacity: 1;
+	top: 0;
+}
